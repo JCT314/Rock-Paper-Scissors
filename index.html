@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="https://kit.fontawesome.com/b32d10cccf.js" crossorigin="anonymous"></script>
     <script defer src="rps.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="title">Rock, Paper, Scissors</h1>
+        <h2 class="round-display">Round 1 </p>
+        <h2 class="score"><span class="score-player score-text">Player:0</span>  <span class="score-computer score-text">0:Computer</span></h2>
+        <h3 class="outcome">Choose Your Weapon to Begin!</h3>
+        <div class="btns">
+            <button class="btn" data-weapon="Rock"><i class="fas fa-hand-rock weapon weapon-rock"></i></button>
+            <button class="btn" data-weapon="Paper"><i class="fas fa-hand-paper weapon weapon-paper"></i></button>
+            <button class="btn"
+            data-weapon="Scissors"><i class="fas fa-hand-scissors weapon weapon-scissors"></i></button>
+        </div>
+    </div>
 </body>
 </html>

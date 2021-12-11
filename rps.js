@@ -9,20 +9,30 @@ function playRound(playerSelection,computerSelection) {
     computerSelection = computerSelection;
 
     if(playerSelection === computerSelection) {
-        return "Draw!";
+        return {winner:"",text:"Draw!"};
     } else if((playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Scissors" && computerSelection === "Paper") || (playerSelection === "Paper" && computerSelection === "Rock")) {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        return {winner:'player',text:`You Win! ${playerSelection} beats ${computerSelection}`};
     } else {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        return {winner:'computer',text:`You Lose! ${computerSelection} beats ${playerSelection}`};
     }
 }
 
-function game() {
-    for(let i = 0; i < 5; i++) {
-        const playerSelection = prompt('Choose scissors, rock, or paper');
-        const computerSelection = computerPlay();
-        console.log(`Round ${i + 1}: ${playRound(playerSelection,computerSelection)}`);
-    }
+function getPlayerChoice(btn) {
+    return btn.dataset.weapon;
 }
-game();
+
+function onButtonClick(e) {
+    const btn = e.target.closest('.btn');
+    if(!btn) return;
+
+    const playerSelection = getPlayerChoice(btn);
+    const computerSelection = computerPlay();
+    const {text,winner} = playRound(playerSelection,computerSelection);
+    outcomeEl.textContent = text;
+    
+}
+
+const btns = document.querySelector(".btns");
+const outcomeEl = document.querySelector(".outcome");
+btns.addEventListener('click', onButtonClick);
 
