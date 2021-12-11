@@ -7,7 +7,7 @@
 .container {
   height: 100vh;
   display: grid;
-  grid-template-rows: repeat(3, auto) 1fr;
+  grid-template-rows: repeat(4, auto) 1fr auto;
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -57,6 +57,14 @@
   grid-column: 1/-1;
   text-align: center;
   padding: 20px;
+}
+
+.reset-text {
+  grid-row: 4/5;
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0;
 }
 
 .btns {
@@ -140,4 +148,14 @@
 
 .score-text {
   display: block;
+}
+
+.btn--reset {
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  grid-row: -1;
+  grid-column: 2/3;
+  justify-self: center;
+  margin-bottom: 20px;
 }
